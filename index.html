@@ -76,12 +76,9 @@
     }
 
     .brand-lockup img {
-      width: 44px;
+      width: 58px;
       height: 44px;
-      padding: 5px;
-      border-radius: 50%;
       object-fit: contain;
-      background: var(--white);
     }
 
     .nav-links {
@@ -214,90 +211,6 @@
       transform: translateX(clamp(12px, 3vw, 48px));
     }
 
-    .liquid-orbit {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      filter: drop-shadow(0 0 24px rgba(196, 155, 79, 0.35));
-    }
-
-    .liquid-dot {
-      --size: 14px;
-      --delay: 0s;
-      --duration: 10s;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: var(--size);
-      height: var(--size);
-      border-radius: 50%;
-      background: radial-gradient(circle at 30% 30%, #fff8c7, var(--leaf) 42%, rgba(139, 161, 123, 0.1));
-      transform-origin: -8px -190px;
-      animation: orbit var(--duration) linear infinite;
-      animation-delay: var(--delay);
-      opacity: 0.84;
-    }
-
-    .liquid-dot:nth-child(2n) {
-      background: radial-gradient(circle at 30% 30%, #ffffff, #d7bc70 48%, rgba(196, 155, 79, 0.1));
-      transform-origin: 22px -220px;
-    }
-
-    .liquid-dot:nth-child(3n) {
-      transform-origin: -34px -150px;
-      opacity: 0.58;
-    }
-
-    .bottle-glow {
-      position: absolute;
-      width: min(520px, 82vw);
-      height: min(570px, 88vw);
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(200, 216, 170, 0.68), rgba(196, 155, 79, 0.14) 45%, transparent 70%);
-      animation: pulseGlow 4s ease-in-out infinite;
-      z-index: 0;
-    }
-
-    .liquid-ribbon {
-      position: absolute;
-      left: 50%;
-      top: 52%;
-      width: min(620px, 86vw);
-      height: min(276px, 42vw);
-      border-radius: 50%;
-      pointer-events: none;
-      transform-style: preserve-3d;
-    }
-
-    .liquid-ribbon::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      background:
-        conic-gradient(from 18deg, transparent 0 10%, rgba(248, 222, 129, 0.92) 15%, #c57d17 23%, rgba(255, 238, 164, 0.96) 34%, transparent 45% 58%, rgba(202, 136, 22, 0.86) 66%, rgba(255, 231, 146, 0.9) 76%, transparent 86% 100%);
-      mask: radial-gradient(ellipse at center, transparent 0 57%, #000 58% 65%, transparent 67%);
-      -webkit-mask: radial-gradient(ellipse at center, transparent 0 57%, #000 58% 65%, transparent 67%);
-      filter: blur(0.2px) drop-shadow(0 14px 20px rgba(173, 111, 22, 0.25));
-    }
-
-    .liquid-ribbon.back {
-      z-index: 1;
-      transform: translate(-50%, -50%) rotateX(62deg) rotateZ(-18deg);
-      opacity: 0.72;
-      animation: ribbonBack 8.5s ease-in-out infinite;
-    }
-
-    .liquid-ribbon.front {
-      z-index: 4;
-      top: 57%;
-      width: min(560px, 78vw);
-      height: min(235px, 36vw);
-      transform: translate(-50%, -50%) rotateX(64deg) rotateZ(16deg);
-      opacity: 0.9;
-      animation: ribbonFront 7s ease-in-out infinite;
-    }
-
     .bottle-wrap {
       position: relative;
       width: min(500px, 78vw);
@@ -313,68 +226,8 @@
       width: 100%;
       max-height: 700px;
       object-fit: contain;
-      mix-blend-mode: multiply;
       image-rendering: auto;
-      border-radius: 18px;
-      box-shadow: 0 30px 70px rgba(16, 38, 27, 0.12);
-      filter: contrast(1.04) saturate(1.06) drop-shadow(0 34px 42px rgba(16, 38, 27, 0.2));
-    }
-
-    .bottle-label {
-      position: absolute;
-      z-index: 2;
-      left: 50%;
-      top: 51%;
-      width: 34%;
-      min-width: 96px;
-      aspect-ratio: 0.74;
-      transform: translate(-50%, -50%) rotate(0.5deg);
-      display: grid;
-      place-items: center;
-      padding: 10px 8px;
-      border: 1px solid rgba(49, 68, 53, 0.34);
-      border-radius: 8px;
-      background: linear-gradient(180deg, rgba(255, 252, 244, 0.98), rgba(244, 237, 222, 0.96));
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.7), 0 10px 20px rgba(16, 38, 27, 0.18);
-      color: var(--forest);
-      text-align: center;
-    }
-
-    .label-mark {
-      display: block;
-      width: 26px;
-      height: 16px;
-      margin: 0 auto 4px;
-      border-radius: 50% 8px 50% 8px;
-      background: linear-gradient(135deg, var(--leaf), var(--gold));
-      transform: rotate(-18deg);
-    }
-
-    .label-brand {
-      display: block;
-      font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: clamp(1.25rem, 2.6vw, 1.65rem);
-      font-weight: 700;
-      line-height: 0.86;
-    }
-
-    .label-type {
-      display: block;
-      margin-top: 5px;
-      color: var(--moss);
-      font-size: clamp(0.48rem, 0.95vw, 0.66rem);
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .label-note {
-      display: block;
-      margin-top: 6px;
-      color: var(--muted);
-      font-size: clamp(0.42rem, 0.8vw, 0.58rem);
-      font-weight: 700;
-      letter-spacing: 0.04em;
+      filter: contrast(1.04) saturate(1.06) drop-shadow(0 34px 42px rgba(16, 38, 27, 0.22));
     }
 
     .about {
@@ -787,53 +640,12 @@
       transform: translateY(0);
     }
 
-    @keyframes orbit {
-      from {
-        transform: rotate(0deg) translateX(165px) rotate(0deg) scale(0.7);
-      }
-      50% {
-        transform: rotate(180deg) translateX(205px) rotate(-180deg) scale(1.25);
-      }
-      to {
-        transform: rotate(360deg) translateX(165px) rotate(-360deg) scale(0.7);
-      }
-    }
-
     @keyframes floatBottle {
       0%, 100% {
         transform: translateY(0) rotate(-0.6deg);
       }
       50% {
         transform: translateY(-16px) rotate(0.85deg);
-      }
-    }
-
-    @keyframes pulseGlow {
-      0%, 100% {
-        transform: scale(0.96);
-        opacity: 0.7;
-      }
-      50% {
-        transform: scale(1.08);
-        opacity: 1;
-      }
-    }
-
-    @keyframes ribbonBack {
-      0%, 100% {
-        transform: translate(-50%, -50%) rotateX(62deg) rotateZ(-18deg) translateY(0) scale(1);
-      }
-      50% {
-        transform: translate(-50%, -50%) rotateX(62deg) rotateZ(-9deg) translateY(-14px) scale(1.02);
-      }
-    }
-
-    @keyframes ribbonFront {
-      0%, 100% {
-        transform: translate(-50%, -50%) rotateX(64deg) rotateZ(16deg) translateY(0) scale(1);
-      }
-      50% {
-        transform: translate(-50%, -50%) rotateX(64deg) rotateZ(23deg) translateY(10px) scale(1.025);
       }
     }
 
@@ -889,15 +701,6 @@
 
       .bottle-wrap {
         width: min(370px, 78vw);
-      }
-
-      .bottle-label {
-        min-width: 76px;
-        padding: 8px 6px;
-      }
-
-      .liquid-dot {
-        transform-origin: -4px -142px;
       }
 
       .about {
@@ -964,30 +767,9 @@
         </div>
 
         <div class="bottle-stage" aria-label="Animated CA Natural shampoo showcase">
-          <div class="bottle-glow"></div>
-          <div class="liquid-ribbon back" aria-hidden="true"></div>
-          <div class="liquid-orbit" aria-hidden="true">
-            <span class="liquid-dot" style="--delay:-0.2s;--duration:8.5s;--size:16px"></span>
-            <span class="liquid-dot" style="--delay:-1.4s;--duration:10s;--size:9px"></span>
-            <span class="liquid-dot" style="--delay:-2.8s;--duration:12s;--size:18px"></span>
-            <span class="liquid-dot" style="--delay:-4.2s;--duration:9.2s;--size:12px"></span>
-            <span class="liquid-dot" style="--delay:-5.6s;--duration:11s;--size:20px"></span>
-            <span class="liquid-dot" style="--delay:-6.9s;--duration:13s;--size:10px"></span>
-            <span class="liquid-dot" style="--delay:-8.3s;--duration:9.8s;--size:15px"></span>
-            <span class="liquid-dot" style="--delay:-9.6s;--duration:12.5s;--size:11px"></span>
-          </div>
           <div class="bottle-wrap">
-            <img class="hero-bottle" src="CA logos/CA animated shampoo.jpeg" alt="CA Natural animated shampoo bottle" />
-            <div class="bottle-label" aria-hidden="true">
-              <div>
-                <span class="label-mark"></span>
-                <span class="label-brand">CA<br>Natural</span>
-                <span class="label-type">Shampoo</span>
-                <span class="label-note">Rosemary · Aloe · Honey</span>
-              </div>
-            </div>
+            <img class="hero-bottle" src="CA logos/CA animated shampoo.png" alt="CA Natural animated shampoo bottle" />
           </div>
-          <div class="liquid-ribbon front" aria-hidden="true"></div>
         </div>
       </div>
     </section>
