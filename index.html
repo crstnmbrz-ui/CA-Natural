@@ -76,10 +76,12 @@
     }
 
     .brand-lockup img {
-      width: 42px;
-      height: 42px;
+      width: 44px;
+      height: 44px;
+      padding: 5px;
       border-radius: 50%;
-      object-fit: cover;
+      object-fit: contain;
+      background: var(--white);
     }
 
     .nav-links {
@@ -152,11 +154,11 @@
     .hero-content {
       position: relative;
       z-index: 2;
-      width: min(1220px, 100%);
+      width: min(1280px, 100%);
       display: grid;
-      grid-template-columns: minmax(0, 0.92fr) minmax(360px, 1.08fr);
+      grid-template-columns: minmax(0, 0.88fr) minmax(420px, 1.12fr);
       align-items: center;
-      gap: clamp(28px, 5vw, 86px);
+      gap: clamp(56px, 8vw, 140px);
     }
 
     .hero-copy {
@@ -209,6 +211,7 @@
       place-items: center;
       isolation: isolate;
       perspective: 900px;
+      transform: translateX(clamp(12px, 3vw, 48px));
     }
 
     .liquid-orbit {
@@ -259,8 +262,8 @@
       position: absolute;
       left: 50%;
       top: 52%;
-      width: min(560px, 86vw);
-      height: min(250px, 42vw);
+      width: min(620px, 86vw);
+      height: min(276px, 42vw);
       border-radius: 50%;
       pointer-events: none;
       transform-style: preserve-3d;
@@ -288,8 +291,8 @@
     .liquid-ribbon.front {
       z-index: 4;
       top: 57%;
-      width: min(500px, 78vw);
-      height: min(210px, 36vw);
+      width: min(560px, 78vw);
+      height: min(235px, 36vw);
       transform: translate(-50%, -50%) rotateX(64deg) rotateZ(16deg);
       opacity: 0.9;
       animation: ribbonFront 7s ease-in-out infinite;
@@ -297,27 +300,31 @@
 
     .bottle-wrap {
       position: relative;
-      width: min(460px, 78vw);
-      max-height: 660px;
-      animation: floatBottle 5.6s ease-in-out infinite;
+      width: min(500px, 78vw);
+      max-height: 700px;
+      animation: floatBottle 6.4s ease-in-out infinite;
       z-index: 3;
+      border-radius: 18px;
     }
 
     .hero-bottle {
       position: relative;
       z-index: 1;
       width: 100%;
-      max-height: 660px;
+      max-height: 700px;
       object-fit: contain;
       mix-blend-mode: multiply;
-      filter: drop-shadow(0 34px 42px rgba(16, 38, 27, 0.24));
+      image-rendering: auto;
+      border-radius: 18px;
+      box-shadow: 0 30px 70px rgba(16, 38, 27, 0.12);
+      filter: contrast(1.04) saturate(1.06) drop-shadow(0 34px 42px rgba(16, 38, 27, 0.2));
     }
 
     .bottle-label {
       position: absolute;
       z-index: 2;
       left: 50%;
-      top: 50.5%;
+      top: 51%;
       width: 34%;
       min-width: 96px;
       aspect-ratio: 0.74;
@@ -794,10 +801,10 @@
 
     @keyframes floatBottle {
       0%, 100% {
-        transform: translateY(0) rotate(-1deg);
+        transform: translateY(0) rotate(-0.6deg);
       }
       50% {
-        transform: translateY(-18px) rotate(1.2deg);
+        transform: translateY(-16px) rotate(0.85deg);
       }
     }
 
@@ -814,10 +821,10 @@
 
     @keyframes ribbonBack {
       0%, 100% {
-        transform: translate(-50%, -50%) rotateX(62deg) rotateZ(-18deg) translateY(0);
+        transform: translate(-50%, -50%) rotateX(62deg) rotateZ(-18deg) translateY(0) scale(1);
       }
       50% {
-        transform: translate(-50%, -50%) rotateX(62deg) rotateZ(-8deg) translateY(-14px);
+        transform: translate(-50%, -50%) rotateX(62deg) rotateZ(-9deg) translateY(-14px) scale(1.02);
       }
     }
 
@@ -826,7 +833,7 @@
         transform: translate(-50%, -50%) rotateX(64deg) rotateZ(16deg) translateY(0) scale(1);
       }
       50% {
-        transform: translate(-50%, -50%) rotateX(64deg) rotateZ(25deg) translateY(12px) scale(1.03);
+        transform: translate(-50%, -50%) rotateX(64deg) rotateZ(23deg) translateY(10px) scale(1.025);
       }
     }
 
@@ -877,6 +884,7 @@
 
       .bottle-stage {
         min-height: 520px;
+        transform: none;
       }
 
       .bottle-wrap {
@@ -933,7 +941,7 @@
 <body>
   <header class="site-header">
     <a class="brand-lockup" href="#home" aria-label="CA Natural home">
-      <img src="ca-natural-logo.png" alt="CA Natural logo" />
+      <img src="CA logo.png" alt="CA Natural logo" />
       <span>CA Natural</span>
     </a>
     <nav class="nav-links" aria-label="Primary navigation">
@@ -969,7 +977,7 @@
             <span class="liquid-dot" style="--delay:-9.6s;--duration:12.5s;--size:11px"></span>
           </div>
           <div class="bottle-wrap">
-            <img class="hero-bottle" src="ca-shampoo-animated.png?v=3" alt="CA Natural animated shampoo bottle" />
+            <img class="hero-bottle" src="CA logos/CA animated shampoo.jpeg" alt="CA Natural animated shampoo bottle" />
             <div class="bottle-label" aria-hidden="true">
               <div>
                 <span class="label-mark"></span>
