@@ -151,11 +151,11 @@
     .hero-content {
       position: relative;
       z-index: 2;
-      width: min(1280px, 100%);
+      width: min(1340px, 100%);
       display: grid;
-      grid-template-columns: minmax(0, 0.88fr) minmax(420px, 1.12fr);
+      grid-template-columns: minmax(0, 0.82fr) minmax(430px, 1.18fr);
       align-items: center;
-      gap: clamp(56px, 8vw, 140px);
+      gap: clamp(76px, 10vw, 190px);
     }
 
     .hero-copy {
@@ -208,7 +208,7 @@
       place-items: center;
       isolation: isolate;
       perspective: 900px;
-      transform: translateX(clamp(12px, 3vw, 48px));
+      transform: translateX(clamp(28px, 5vw, 82px));
     }
 
     .bottle-wrap {
@@ -231,15 +231,45 @@
     }
 
     .about {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
       display: grid;
       grid-template-columns: minmax(280px, 0.85fr) minmax(320px, 1.15fr);
       gap: 58px;
       align-items: center;
       background:
-        linear-gradient(115deg, rgba(16, 38, 27, 0.88), rgba(49, 68, 53, 0.72)),
-        url("Products phtotos/Soaps.jpeg") center/cover;
+        radial-gradient(circle at 16% 24%, rgba(200, 216, 170, 0.18), transparent 28%),
+        radial-gradient(circle at 82% 16%, rgba(196, 155, 79, 0.2), transparent 26%),
+        radial-gradient(circle at 74% 84%, rgba(139, 161, 123, 0.2), transparent 34%),
+        linear-gradient(128deg, #06130d 0%, #10261b 42%, #1f3a28 100%);
       color: var(--white);
       min-height: 720px;
+    }
+
+    .about::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(115deg, rgba(6, 19, 13, 0.86), rgba(16, 38, 27, 0.72)),
+        url("Products phtotos/Soaps.jpeg") center/cover;
+      opacity: 0.16;
+      filter: saturate(0.72) contrast(1.12);
+    }
+
+    .about::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: min(760px, 72vw);
+      aspect-ratio: 1;
+      right: -18vw;
+      top: 8%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(200, 216, 170, 0.18), rgba(196, 155, 79, 0.08) 38%, transparent 68%);
+      filter: blur(4px);
     }
 
     .about h2,
@@ -251,7 +281,8 @@
       max-width: 760px;
       padding: clamp(28px, 4vw, 54px);
       border: 1px solid rgba(255, 255, 255, 0.22);
-      background: rgba(251, 247, 239, 0.08);
+      background: rgba(251, 247, 239, 0.07);
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.24);
       backdrop-filter: blur(18px);
     }
 
