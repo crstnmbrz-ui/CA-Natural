@@ -458,6 +458,48 @@
       background: linear-gradient(135deg, rgba(238, 229, 213, 0.75), rgba(200, 216, 170, 0.48));
     }
 
+    .shirt-carousel {
+      position: absolute;
+      inset: 24px 24px 120px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 50% 34%, rgba(255, 255, 255, 0.9), transparent 42%),
+        linear-gradient(135deg, rgba(238, 229, 213, 0.78), rgba(200, 216, 170, 0.42));
+    }
+
+    .shirt-carousel::after {
+      content: "";
+      position: absolute;
+      inset: 16px;
+      border: 1px solid rgba(49, 68, 53, 0.08);
+      border-radius: 8px;
+      pointer-events: none;
+    }
+
+    .shirt-carousel img {
+      position: absolute;
+      width: auto;
+      height: auto;
+      max-width: 88%;
+      max-height: 92%;
+      object-fit: contain;
+      filter: drop-shadow(0 24px 30px rgba(16, 38, 27, 0.18));
+      transform: scale(0.985) translateY(4px);
+      opacity: 0;
+      animation: shirtSwap 6s ease-in-out infinite;
+    }
+
+    .shirt-carousel img:first-child {
+      animation-name: shirtFront;
+    }
+
+    .shirt-carousel img:last-child {
+      animation-name: shirtBack;
+    }
+
     .badge {
       position: absolute;
       top: 22px;
@@ -680,6 +722,36 @@
       }
     }
 
+    @keyframes shirtFront {
+      0%, 42% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+      50%, 92% {
+        opacity: 0;
+        transform: scale(0.985) translateY(4px);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    @keyframes shirtBack {
+      0%, 42% {
+        opacity: 0;
+        transform: scale(0.985) translateY(4px);
+      }
+      50%, 92% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(0.985) translateY(4px);
+      }
+    }
+
     @media (max-width: 1080px) {
       .nav-links {
         display: none;
@@ -873,7 +945,10 @@
       <div class="merch-grid">
         <article class="merch-card reveal">
           <span class="badge">Coming Soon</span>
-          <div class="mockup">T</div>
+          <div class="shirt-carousel" aria-label="CA Natural T-shirt front and back preview">
+            <img src="Merchandise/CA Natural T shirt front1.png" alt="CA Natural T-shirt front" />
+            <img src="Merchandise/CA natural  Tshirt back 1.png" alt="CA Natural T-shirt back" />
+          </div>
           <h3>T-shirts</h3>
           <p class="description">Soft cotton essentials with crisp CA Natural branding.</p>
         </article>
