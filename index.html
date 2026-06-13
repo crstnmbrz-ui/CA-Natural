@@ -460,8 +460,14 @@
 
     .shirt-carousel {
       position: absolute;
-      inset: 18px 18px 112px;
-      display: grid;
+      top: 28px;
+      left: 28px;
+      right: 28px;
+      height: 252px;
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       place-items: center;
       overflow: hidden;
       border-radius: 8px;
@@ -483,8 +489,8 @@
       position: absolute;
       width: auto;
       height: auto;
-      max-width: 108%;
-      max-height: 108%;
+      max-width: 96%;
+      max-height: 238px;
       object-fit: contain;
       filter: drop-shadow(0 24px 30px rgba(16, 38, 27, 0.18));
       transform: scale(0.985) translateY(4px);
@@ -806,6 +812,19 @@
         width: min(370px, 78vw);
       }
 
+      .shirt-carousel {
+        top: 24px;
+        left: 22px;
+        right: 22px;
+        height: 228px;
+        padding: 6px;
+      }
+
+      .shirt-carousel img {
+        max-width: 98%;
+        max-height: 216px;
+      }
+
       .about {
         grid-template-columns: 1fr;
         min-height: auto;
@@ -943,7 +962,7 @@
         <p>Minimal branded pieces for the CA Natural community, styled with the same fresh, confident feel as the care line.</p>
       </div>
       <div class="merch-grid">
-        <article class="merch-card reveal">
+        <article class="merch-card tshirts reveal">
           <span class="badge">Coming Soon</span>
           <div class="shirt-carousel" aria-label="CA Natural T-shirt front and back preview">
             <img src="Merchandise/CA Natural T shirt front1.png" alt="CA Natural T-shirt front" />
