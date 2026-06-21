@@ -485,13 +485,14 @@
       background: linear-gradient(135deg, rgba(238, 229, 213, 0.75), rgba(200, 216, 170, 0.48));
     }
 
-    .shirt-carousel {
+    .shirt-carousel,
+    .hat-carousel {
       position: absolute;
-      top: 24px;
-      left: 44px;
-      right: 44px;
-      height: 258px;
-      padding: 4px;
+      top: 20px;
+      left: 18px;
+      right: 18px;
+      height: 292px;
+      padding: 0;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -502,22 +503,26 @@
         linear-gradient(135deg, rgba(238, 229, 213, 0.78), rgba(200, 216, 170, 0.42));
     }
 
-    .shirt-carousel::after {
+    .shirt-carousel::after,
+    .hat-carousel::after {
       content: "";
       position: absolute;
-      inset: 8px;
+      inset: 10px;
       border: 1px solid rgba(49, 68, 53, 0.08);
       border-radius: 8px;
       pointer-events: none;
     }
 
-    .shirt-carousel img {
+    .shirt-carousel img,
+    .hat-carousel img {
       position: absolute;
-      width: auto;
-      height: 318px;
-      max-width: none;
-      max-height: none;
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
       object-fit: contain;
+      display: block;
+      border-radius: 6px;
       filter: drop-shadow(0 24px 30px rgba(16, 38, 27, 0.18));
       transform: scale(0.985) translateY(4px);
       opacity: 0;
@@ -530,6 +535,18 @@
 
     .shirt-carousel img:last-child {
       animation-name: shirtBack;
+    }
+
+    .hat-carousel img {
+      animation: hatSwap 9s ease-in-out infinite;
+    }
+
+    .hat-carousel img:nth-child(2) {
+      animation-delay: -6s;
+    }
+
+    .hat-carousel img:nth-child(3) {
+      animation-delay: -3s;
     }
 
     .badge {
@@ -784,6 +801,21 @@
       }
     }
 
+    @keyframes hatSwap {
+      0%, 27% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+      34%, 94% {
+        opacity: 0;
+        transform: scale(0.985) translateY(4px);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
     @media (max-width: 1080px) {
       .nav-links {
         display: none;
@@ -838,16 +870,19 @@
         width: min(370px, 78vw);
       }
 
-      .shirt-carousel {
-        top: 24px;
-        left: 34px;
-        right: 34px;
-        height: 228px;
-        padding: 4px;
+      .shirt-carousel,
+      .hat-carousel {
+        top: 18px;
+        left: 16px;
+        right: 16px;
+        height: 276px;
+        padding: 0;
       }
 
-      .shirt-carousel img {
-        height: 282px;
+      .shirt-carousel img,
+      .hat-carousel img {
+        width: 100%;
+        height: 100%;
       }
 
       .about {
@@ -1004,9 +1039,13 @@
           <h3>T-shirts</h3>
           <p class="description">Soft cotton essentials with crisp CA Natural branding.</p>
         </article>
-        <article class="merch-card reveal">
+        <article class="merch-card hats reveal">
           <span class="badge">Shop</span>
-          <div class="mockup">C</div>
+          <div class="hat-carousel" aria-label="CA Natural hats preview">
+            <img src="CA brown hat.png" alt="CA Natural brown hat" />
+            <img src="CA natural green hat.png" alt="CA Natural green hat" />
+            <img src="CA Natural beach had.png" alt="CA Natural beach hat" />
+          </div>
           <h3>Caps / Hats</h3>
           <p class="description">Clean everyday headwear in warm neutral tones.</p>
         </article>
